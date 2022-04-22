@@ -7,7 +7,7 @@
 
 		DISCORD_RPC = {}
 		DISCORD_RPC.screen = SCREENMAN:GetTopScreen():GetName()
-		DISCORD_RPC.udpate = function(ns)
+		DISCORD_RPC.update = function(ns)
 			if ns == 'ScreenTitleMenu' then
 				Lemonade.Buffers:Add(1,{1,1})
 			elseif ns == 'ScreenSelectMusic' then
