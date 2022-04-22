@@ -1,0 +1,29 @@
+<Layer
+	Type="Quad"
+	Name="Discord RPC"
+	OverlayReadyMessageCommand="queuecommand,First"
+	FirstCommand="%function(self)
+		if DISCORD_RPC then return end
+
+		DISCORD_RPC = {}
+		DISCORD_RPC.screen = SCREENMAN:GetTopScreen():GetName()
+		
+		Lemonade.Hooks:Add(1,'init',function(buffer)
+			-- ask for current screen
+			if buffer[1] == 1 then
+				CONSTMELODY.RPC.UpdateScreen(SCREENMAN:GetTopScreen():GetName())
+			end
+		end)
+
+		self:luaeffect('Start')
+	end"
+
+	StartCommand="%function(self)
+		local screen = SCREENMAN:GetTopScreen():GetName()
+
+		if DISCORD_RPC.screen ~= screen then
+			CONSTMELODY.RPC.UpdateScreen(screen)
+			DISCORD_RPC.screen = screen
+		end
+	end"
+/>
