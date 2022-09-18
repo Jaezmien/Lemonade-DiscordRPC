@@ -20,7 +20,7 @@
 				local song_folder = Lemonade:Encode( GAMESTATE:GetCurrentSong():GetGroupName() )
 				table.insert(song_folder,1,2)
 				table.insert(song_folder,1,2)
-				local song_length = {2,3,GAMESTATE:GetCurrentSong():MusicLengthSeconds()}
+				local song_length = {2,3,math.ceil(GAMESTATE:GetCurrentSong():MusicLengthSeconds())}
 				Lemonade.Buffers:Add(1,song_name)
 				Lemonade.Buffers:Add(1,song_folder)
 				Lemonade.Buffers:Add(1,song_length)
